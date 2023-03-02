@@ -1,0 +1,29 @@
+.link {
+    text-decoration: none;
+}
+
+.back {
+    display: block;
+    cursor: pointer;
+    background-color: azure;
+}
+
+.wrap {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid rgb(36, 31, 31);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.additional {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid rgb(36, 31, 31);
+}
