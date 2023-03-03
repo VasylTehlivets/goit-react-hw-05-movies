@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useRef } from 'react';
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation, useParams } from 'react-router-dom';
 import { getDetails } from '../../Api';
@@ -9,7 +9,9 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const [movie, setMovie] = useState(null);
-
+  const prevPageUrl = useRef(location.state?.from || '/');
+   
+  
   useEffect(() => {
     getDetails(movieId).then(setMovie);
   }, [movieId]);
@@ -30,7 +32,7 @@ const MovieDetails = () => {
     <>
       <div className={css.wrap}>
         <div>
-          <Link to={location.state?.from ?? '/'} className={css.link}>
+          <Link to={prevPageUrl.current} className={css.link}>
             <button className={css.back}>← Go back</button>
           </Link>
           <img
